@@ -1,0 +1,56 @@
+{
+    "@context": {
+        "CIP100": "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0100/README.md#",
+        "body": {
+            "@id": "CIP100:body",
+            "@context": {
+                "references": {
+                    "@id": "CIP100:references",
+                    "@container": "@set",
+                    "@context": {
+                        "GovernanceMetadata": "CIP100:GovernanceMetadataReference",
+                        "Other": "CIP100:OtherReference",
+                        "label": "CIP100:reference-label",
+                        "uri": "CIP100:reference-uri",
+                        "referenceHash": {
+                            "@id": "CIP100:referenceHash",
+                            "@context": {
+                                "hashDigest": "CIP100:hashDigest",
+                                "hashAlgorithm": "CIP100:hashAlgorithm"
+                            }
+                        }
+                    }
+                },
+                "comment": "CIP100:comment",
+                "externalUpdates": {
+                    "@id": "CIP100:externalUpdates",
+                    "@context": {
+                        "title": "CIP100:update-title",
+                        "uri": "CIP100:uri"
+                    }
+                }
+            }
+        },
+        "authors": {
+            "@id": "CIP100:authors",
+            "@container": "@set",
+            "@context": {
+                "name": "http://xmlns.com/foaf/0.1/name",
+                "witness": {
+                    "@id": "CIP100:witness",
+                    "@context": {
+                        "witnessAlgorithm": "CIP100:witnessAlgorithm",
+                        "publicKey": "CIP100:publicKey",
+                        "signature": "CIP100:signature"
+                    }
+                }
+            }
+        },
+        "hashAlgorithm": "CIP100:hashAlgorithm"
+    },
+    "body": {
+        "comment": "I'm voting No on the Intersect budget because it includes a lot of proposals that I don't want to be funded. I don't think that they are worth our ADA and greenlighting that budget that combines a lot of different proposals could (and I fear will) be seen as a precedence that they then also have the 'right' to get those ADA in later treasury withdrawals. Large omnibus budgets were a phenomenally bad idea and the 'budget committee' was not open to change paths at all. Moreover, I believe that Intersect is not a competent budget administrator and should not be chosen for that role at all."
+    },
+    "hashAlgorithm": "blake2b-256",
+    "authors": []
+}
