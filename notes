@@ -1,0 +1,23 @@
+IPFS Stuff:
+===========
+$ ipfs add YYYY-MM-DD-<type>-<topic>.jsonld
+added Qm<jsonld> YYYY-MM-DD-<type>-<topic>.jsonld
+$ ipfs files cp /ipfs/Qm<jsonld> /drep/YYYY-MM-DD-<type>-<topic>.jsonld
+$ ipfs pin remote add /ipfs/Qm<jsonld> --service=Pinata --name=YYYY-MM-DD-<type>-<topic>.jsonld
+
+$ ipfs pin remote rm --service=Pinata --name=/
+$ ipfs files stat /
+Qm<root>
+$ ipfs pin remote add Qm<root> --service=Pinata --name=/
+
+$ ipfs name publish Qm<root> --lifetime=672h
+
+Votes:
+======
+$ cardano-cli hash anchor-data --file-text YYYY-MM-DD-<type>-<topic>.jsonld; echo
+<hash>
+$ IPFS_GATEWAY_URI="https://gateway.pinata.cloud/" cardano-cli conway governance vote create --yes/--no --governance-action-tx-id <txid> --governance-action-index 0 --drep-key-hash 4e1d2a282c1e434ff390b3dfa3b221bf4f5bd3d43b9eb31ee890fc0f --anchor-url ipfs://Qm<jsonld> --anchor-data-hash <hash> --check-anchor-data-hash --out-file YYYY-MM-DD-<type>-<topic>.vote.json
+
+Transaction:
+============
+cardano-cli conway transaction build --mainnet --socket-path ~/.local/cardano/chains/mainnet/socket --tx-in <txid#ix> --change-address addr1qyn04nuejghr54x5srvmhpczqcvysy4s3m36ye2mhqngx57w5qtnashrgkt3400nmch2kffh6l52r62hlunj82y2xnuq3xtl2y --vote-file YYYY-MM-DD-<type>-<topic>.vote.json --witness-override 2 --out-file YYYY-MM-DD.tx.json
